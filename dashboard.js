@@ -13,7 +13,8 @@ function getSpreadsheetData() {
       height: 300,
       chartType: 'ColumnChart',
       vAxis: '',
-      hAxis: 'Products'
+      hAxis: 'Products',
+      conclusion: 'Kesimpulan: Terdapat perbedaan jumlah produk yang terjual dan total harga pada makanan ringan.'
     },
     // Spreadsheet 2
     {
@@ -25,7 +26,8 @@ function getSpreadsheetData() {
       height: 300,
       chartType: 'LineChart',
       vAxis: '',
-      hAxis: 'Month'
+      hAxis: 'Month',
+      conclusion: 'Kesimpulan: Terdapat tren penjualan dari bulan Januari hingga November.'
     },
     // Spreadsheet 3
     { 
@@ -37,19 +39,21 @@ function getSpreadsheetData() {
       height: 300,
       chartType: 'AreaChart',
       vAxis: '',
-      hAxis: 'City'
+      hAxis: 'City',
+      conclusion: 'Kesimpulan: Terdapat perbedaan harga dan total harga antara kota-kota yang dianalisis.'
     },
     // Spreadsheet 4
     {
       spreadsheetId: '1tpXsHcZTL5dNl6LFahsH1LQAOb1hpycNmCAYfyirOSs',
       range: 'Data3!A1:B6',
       chartId: 'chart4',
-      title: 'Data Perbandingan Penjualan Total Price ',
+      title: 'Data Perbandingan Penjualan Total Price',
       width: 400,
       height: 300,
       chartType: 'BarChart',
       vAxis: 'Product',
-      hAxis: 'Produuct Whole Wheat jumlah Total Price Lebih Banyak dari yang lainnya'
+      hAxis: 'Produuct Whole Wheat jumlah Total Price Lebih Banyak dari yang lainnya',
+      conclusion: 'Kesimpulan: Produk Whole Wheat memiliki jumlah total harga yang lebih tinggi dibandingkan dengan produk lainnya.'
     },
     // Tambahkan spreadsheet dan diagram lainnya di sini
   ];
@@ -106,4 +110,8 @@ function drawChart(data, spreadsheet) {
   }
   
   chart.draw(data, options);
+
+  var conclusionElement = document.createElement('p');
+  conclusionElement.textContent = spreadsheet.conclusion;
+  document.getElementById(spreadsheet.chartId).appendChild(conclusionElement);
 }
